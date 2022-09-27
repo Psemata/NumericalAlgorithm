@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>AN21_Labo3_EquipeB2</title> 
+</head>
+    <body>
+        <h1>Labo 3 - Résolution d'équation - 16.05.2021</h1>
+        <h2>Equipe 3 - Costa Bruno, Frossard Loïc, Izzo Valentino et Lopes Da Silva Diogo</h2>
+
+        <h1>Résolution d'équations linéaires via la méthode d'élimination de Gauss</h1>
+        <p>Copiez-collez le contenu du fichier json que vous souhaitez utiliser ci-dessous<br><br>
+            <textarea id="input" rows='10' cols='60'>{"n": [3],
+"A": [3.0,4.0,-1.0,1.0,-1.0,2.0,2.0,3.0,4.0],
+"B": [23.0,3.0,7.0]}</textarea>
+        </p>
+        <button onclick="execute();">Calculer</button>
+        <br>
+        <span id="chronotime">0ms</span>
+        <p id = "result"></p>
+
+
+        <!-- Documentation -->
+        <h3>Documentation</h3>
+        <h4>Contexte</h4>
+        <p>
+        Le but de ce laboratoire est de développer une application pour mettre en pratique la méthode de Gauss pour résoudre un système linéaire.
+        La lecture des matrices doit pouvoir être faîte à partir d'un fichier JSON au format DimN que l'on va copier dans un text area.
+        Le script doit être testé sur trois matrice.
+        <ul>
+            <li>3x3</li>
+            <li>3x3 avec rotation de ligne</li>
+            <li>210x210</li>
+        </ul>
+        Le temps de process est important, un classement des techniques des plus rapides aux plus lentes sera fait pour ajouter ou non des points.
+        </p>
+        <h4>Méthode</h4>
+        <p>Afin de résoudre un système d'équation linéaire avec la méthode par élimination de Gauss, il faut supprimer certains éléments de la matrice pour au final arriver à une matrice permettant d'utiliser la méthode de subtitution.
+        Notre groupe a eu l'idée "d'éviter" la subtitution en transformant la matrice d'équation en matrice triangulaire à 1 pour finalement avoir une solution par ligne. Ainsi, le travail du script créé est de travailler la matrice pour récupérer une forme :<br>
+        1 0 0 y1<br>
+        0 1 0 y2<br>
+        0 0 1 y3<br>
+        Finalement, c'est à l'aide d'un timer que l'on arrive à voir le temps que le processus à besoin pour calculer ses réponses.
+        </p>
+        <h4>Conclusion</h4>
+        <p>
+        Bien que compliqué à utiliser, la méthode d'élimination de Gauss permet de trouver les différentes solutions d'un système d'équation linéaire sous forme matricielle.
+        L'application de l'équipe 2 a généré ces temps pour les matrices :<br>
+        3x3 avec swap obligatoire : ~1ms<br>
+        3x3 avec que des 0 : erreur, impossible à calculer<br>
+        400x400 : ~165ms
+        </p>
+        <h4>Référence</h4>
+        <p>
+            - Cours de Science 1A avec Mr. Serge Cattarinussi
+            - Aide de Mr. Domingos Costa
+        </p>
+    </body>
+
+<!-- Script utilisé pour calculer les réponses du système d'équation -->
+<script type="text/javascript" src="gauss.js"></script>
+</html>

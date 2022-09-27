@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>AN21_Labo2_EquipeB2</title>
+    <script type="text/javascript" src='https://cdn.plot.ly/plotly-latest.min.js'></script>        
+</head>
+    <body>
+        <h1>Labo 2 - Résolution d'équation - 08.04.2021</h1>
+        <h2>Equipe 2 - Costa Bruno, Frossard Loïc, Izzo Valentino et Lopes Da Silva Diogo</h2>
+
+        <!-- Choix de la fonction à plot -->
+        <h3>Choix des fonction</h3>
+        <input type="radio" onchange="changeFunction(1)" id="fonction1" name="fonction" checked>
+        <label for="fonction1"><strong>sin(x) - x/13</strong></label><br>
+        <input type="radio" onchange="changeFunction(2)" id="fonction2" name="fonction">
+        <label for="fonction2"><strong>x / (1-x^2)</strong></label><br>
+        <!-- Incertitude -->
+        <p>Incertitude à : <label id="incertitude"></label></p>
+        <p>Taux d'erreur moyen : <label id="incertitudeReel"></label></p>
+
+        <!-- Caneva de la fonction (où elle va être plot) -->
+        <div id="caneva" style="width:90%;height:600px;"></div>
+
+        <!-- Documentation -->
+        <h3>Documentation</h3>
+        <h4>Contexte</h4>
+        <p>
+        Le but du laboratoire est de dessiner deux fonctions données par l'enseignant :
+        <ol>
+            <li>sin(x) - x/13</li>        
+            <li>x / (1-x^2)</li> 
+        </ol>
+        Une fois dessinées, il suffit de trouver leurs racines selon une méthode choisie par celles-ci :
+        <ol>
+            <li>Dichotomie</li>
+            <ul>
+                <li>Objectif secondaire : Calculer les erreurs de l'algorithme</li>
+            </ul>
+            <li>Pente (Newton)</li>
+            <ul>
+                <li>Objectif secondaire : si la valeur x0 ne converge pas, l’algo s’arrête et propose d’augmenter ou de diminuer x0</li>
+            </ul>
+            <li>Point fixe</li>
+            <ul>
+                <li>Objectif secondaire : en jouant sur lambda</li>
+            </ul>
+        </ol>
+        Notre groupe a choisi la méthode par dichotomie et à donner son taux d'erreut moyen ainsi que l'incertitude de base
+        </p>
+        <h4>Méthode</h4>
+        <p>La librairie Plotly a été utilisée pour dessiner les graphes et les points des fonctions importantes du labo. Cette librairie permet de zoomer, de se déplacer dans le graphe etc
+        Le principe de dichotomie à été utilisé pour pouvoir trouver les zeros des fonctions. Le groupe s'est inspiré du pseudo-code donné lors du cours ainsi que de l'algorithme QuickSort appris en cours d'algorithmie.
+        Finalement, les points trouvés par dichotomie ont été dessinés sur le graphe via Plotly et une taux d'erreur moyen en a été calculé.
+        </p>
+        <h4>Conclusion</h4>
+        <p>
+        L'incertitude de base choisie est d'environ 0.015 ce qui permet d'afficher la plupart des racines sur le graphe avec, cependant, quelques erreurs apparaîssent.
+        Une moyenne est calculée sur ces erreurs et représente le taux d'erreur moyen de l'algorithme de dichotomie.
+        </p>
+        <h4>Référence</h4>
+        <p>
+        - <a href="https://plotly.com/">Plotly - Js</a><br>
+        - Cours d'algorithmie de 2ème année
+        </p>
+    </body>
+<!-- Script utilisé pour dessiner -->
+<script type="text/javascript" src="dichotomie.js"></script>
+</html>
